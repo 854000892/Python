@@ -1,0 +1,63 @@
+def hanzi_to_pin(s):
+    ls=open('./火车站编码.csv','r',encoding='utf-8').readlines()
+
+    abc=''
+    for i in ls:
+        if s==i.split(',')[0]:
+            abc=i.split(',')[1]
+            break
+    return abc
+
+import urllib.request as r#导入联网工具包，命令为r
+date=input('请输入年月日')
+from_station=input('出发站')
+from_station=hanzi_to_pin(from_station)
+to_station=input('到达站')
+to_station=hanzi_to_pin(to_station)
+print(date,from_station,to_station)
+
+url='https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date={}&leftTicketDTO.from_station={}&leftTicketDTO.to_station={}&purpose_codes=ADULT'
+url=url.format(date,from_station,to_station).replace('\n','')
+#将str类型转换为dict
+data=r.urlopen(url).read().decode('utf-8')
+
+import json
+data=json.loads(data)
+data1=data['data']['result']
+p='  '
+title='车次{}出发站/到达站{}出发时间/到达时间{}历时{}商务座/特等座{}一等座{}二等座{}高级软卧{}软卧{}动卧{}硬卧{}软座{}硬座{}无座{}其他{}备注'.format(p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p)
+title=title.split(p)
+for i in title:
+    print(i.center(8),end='')
+
+for a in range(len(data1)):
+    b=data1[a]
+    print()
+    ls=b.split('|')
+    ls[6]=data['data']['map'].get('{}'.format(ls[6]))
+    ls[7]=data['data']['map'].get('{}'.format(ls[7]))
+    if ls[0]=='':
+        ls[1]=('不能确定')
+    ls=[ls[3],[ls[6],ls[7]],[ls[8],ls[9]],ls[10],ls[32],ls[31],ls[30],ls[21],ls[23],'--',ls[28],ls[29],ls[26],'--',ls[1]]
+    for i in ls:
+        if i =='':
+            i='--'
+        print(str(i).center(11).replace('[','').replace(']',''),end='')
+
+t1=[]
+for i in range(len(data1)):
+    s=data1[i]
+    ls=s.split('|')
+    ls1=[ls[8],ls[3]]
+    t1.append(ls1)
+    
+sorted(t1)
+
+t2=[]
+for i in range(len(data1)):
+    s=data1[i]
+    ls=s.split('|')
+    ls1=[ls[10],ls[3]]
+    t2.append(ls1)
+    
+sorted(t2)
