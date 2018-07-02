@@ -1,0 +1,47 @@
+import urllib.request as r#导入联网工具包，命令为r
+url='https://s.taobao.com/search?q=gtx1080ti&imgfile=&js=1&stats_click=search_radio_all:1&initiative_id=staobaoz_20180622&ie=utf8&ajax=true'
+data=r.urlopen(url).read().decode('utf-8')
+#讲str类型转换为dict
+import json
+data=json.loads(data)
+#data字典-》mods 字典-》itemlist 字典-》data字典-》auctions 列表-》index 0 字典-》raw_title 变量
+for a in range(0,36):
+    a1=data['mods']['itemlist']['data']['auctions'][a]['raw_title'] 
+    a2=data['mods']['itemlist']['data']['auctions'][a]['view_price']
+    a3=data['mods']['itemlist']['data']['auctions'][a]['view_sales']
+    a4=data['mods']['itemlist']['data']['auctions'][a]['nick']
+    a5=data['mods']['itemlist']['data']['auctions'][a]['item_loc']
+    print(a+1)
+    print("商品名:{},价格:{},付款人数:{},店铺名:{},地址:{}".format(a1,a2,a3,a4,a5))
+
+ls=[]
+for i in range(0,36):
+   b=data['mods']['itemlist']['data']['auctions'][i]['view_price']
+   b1=float(b)
+   ls.append(b1)
+   sorted(ls)
+
+ls1=sorted(ls,reverse=True)
+for x in ls1:
+     print(x)
+   
+
+import re
+ls=[]
+for i in range(36):
+   a=data['mods']['itemlist']['data']['auctions'][i]['view_sales'] 
+   b=re.sub('\D','',a)
+   c=float(b)
+   ls.append(c)
+  
+sorted(ls)
+ls2=sorted(ls,reverse=True)
+print(ls2)
+      
+for i in range(36):
+    postage=data['mods']['itemlist']['data']['auctions'][i]['view_fee']
+    store=data['mods']['itemlist']['data']['auctions'][i]['nick']
+    if postage=="0.00":
+        print('店铺名：{},邮费:{}元,包邮!'.format(store,postage))
+    else:
+            print('店铺名：{},邮费:{}元,不包邮!'.format(store,postage))
