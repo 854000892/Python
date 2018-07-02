@@ -1,0 +1,10 @@
+import urllib.request as r#导入联网工具包，命令为r
+url='http://api.openweathermap.org/data/2.5/forecast?q=nanyang,cn&mode=json&lang=zh_cn&&APPID=6a67ed641c0fda8b69715c43518b6996&units=metric'
+data=r.urlopen(url).read().decode('utf-8')
+print(data)
+import re
+ls1=re.compile('"description":"(.*?)"').findall(data)
+ls2=re.compile('"temp":(.*?),').findall(data)
+ls3=re.compile('"pressure":(.*?),').findall(data)
+for i in range(0,36):
+    print('城市是南阳,天气情况是:{},温度是:{},气压是:{}'.format(ls1[i],ls2[i],ls3[i]))
