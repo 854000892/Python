@@ -1,0 +1,9 @@
+import urllib.request as r
+url='http://api.openweathermap.org/data/2.5/weather?q=nanyang&mode=json&units=metric&lang=zh_cn&APPID=6a67ed641c0fda8b69715c43518b6996'
+data=r.urlopen(url).read().decode('utf-8')
+import json
+data=json.loads(data)
+a=data['main']['temp']
+b=data['weather'][0]['description']
+c=data['main']['pressure']
+print('城市是南阳，温度是:{}摄氏度,天气情况是:{},气压是:{}Kpa'.format(a,b,c))
