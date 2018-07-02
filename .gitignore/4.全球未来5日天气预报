@@ -1,0 +1,176 @@
+import urllib.request as r
+url='http://api.openweathermap.org/data/2.5/forecast?q=nanyang,cn&mode=json&lang=zh_cn&&APPID=6a67ed641c0fda8b69715c43518b6996&units=metric'
+data=r.urlopen(url).read().decode('utf-8')
+
+import json
+data=json.loads(data)
+
+t11=data['list'][0]['dt_txt']
+t12=data['list'][0]['main']['temp']
+t13=data['list'][0]['weather'][0]['description']
+t14=data['list'][0]['main']['pressure']
+t15=data['list'][0]['main']['temp_max']
+t16=data['list'][0]['main']['temp_min']
+
+t21=data['list'][2]['dt_txt']
+t22=data['list'][2]['main']['temp']
+t23=data['list'][2]['weather'][0]['description']
+t24=data['list'][2]['main']['pressure']
+t25=data['list'][2]['main']['temp_max']
+t26=data['list'][2]['main']['temp_min']
+
+t31=data['list'][4]['dt_txt']
+t32=data['list'][4]['main']['temp']
+t33=data['list'][4]['weather'][0]['description']
+t34=data['list'][4]['main']['pressure']
+t35=data['list'][4]['main']['temp_max']
+t36=data['list'][4]['main']['temp_min']
+
+t41=data['list'][8]['dt_txt']
+t42=data['list'][8]['main']['temp']
+t43=data['list'][8]['weather'][0]['description']
+t44=data['list'][8]['main']['pressure']
+t45=data['list'][8]['main']['temp_max']
+t46=data['list'][8]['main']['temp_min']
+
+t51=data['list'][10]['dt_txt']
+t52=data['list'][10]['main']['temp']
+t53=data['list'][10]['weather'][0]['description']
+t54=data['list'][10]['main']['pressure']
+t55=data['list'][10]['main']['temp_max']
+t56=data['list'][10]['main']['temp_min']
+
+t61=data['list'][12]['dt_txt']
+t62=data['list'][12]['main']['temp']
+t63=data['list'][12]['weather'][0]['description']
+t64=data['list'][12]['main']['pressure']
+t65=data['list'][12]['main']['temp_max']
+t66=data['list'][12]['main']['temp_min']
+
+t71=data['list'][16]['dt_txt']
+t72=data['list'][16]['main']['temp']
+t73=data['list'][16]['weather'][0]['description']
+t74=data['list'][16]['main']['pressure']
+t75=data['list'][16]['main']['temp_max']
+t76=data['list'][16]['main']['temp_min']
+
+t81=data['list'][18]['dt_txt']
+t82=data['list'][18]['main']['temp']
+t83=data['list'][18]['weather'][0]['description']
+t84=data['list'][18]['main']['pressure']
+t85=data['list'][18]['main']['temp_max']
+t86=data['list'][18]['main']['temp_min']
+
+t91=data['list'][20]['dt_txt']
+t92=data['list'][20]['main']['temp']
+t93=data['list'][20]['weather'][0]['description']
+t94=data['list'][20]['main']['pressure']
+t95=data['list'][20]['main']['temp_max']
+t96=data['list'][20]['main']['temp_min']
+
+t101=data['list'][24]['dt_txt']
+t102=data['list'][24]['main']['temp']
+t103=data['list'][24]['weather'][0]['description']
+t104=data['list'][24]['main']['pressure']
+t105=data['list'][24]['main']['temp_max']
+t106=data['list'][24]['main']['temp_min']
+
+t111=data['list'][26]['dt_txt']
+t112=data['list'][26]['main']['temp']
+t113=data['list'][26]['weather'][0]['description']
+t114=data['list'][26]['main']['pressure']
+t115=data['list'][26]['main']['temp_max']
+t116=data['list'][26]['main']['temp_min']
+
+t121=data['list'][28]['dt_txt']
+t122=data['list'][28]['main']['temp']
+t123=data['list'][28]['weather'][0]['description']
+t124=data['list'][28]['main']['pressure']
+t125=data['list'][28]['main']['temp_max']
+t126=data['list'][28]['main']['temp_min']
+
+t131=data['list'][32]['dt_txt']
+t132=data['list'][32]['main']['temp']
+t133=data['list'][32]['weather'][0]['description']
+t134=data['list'][32]['main']['pressure']
+t135=data['list'][32]['main']['temp_max']
+t136=data['list'][32]['main']['temp_min']
+
+t141=data['list'][34]['dt_txt']
+t142=data['list'][34]['main']['temp']
+t143=data['list'][34]['weather'][0]['description']
+t144=data['list'][34]['main']['pressure']
+t145=data['list'][34]['main']['temp_max']
+t146=data['list'][34]['main']['temp_min']
+
+t151=data['list'][36]['dt_txt']
+t152=data['list'][36]['main']['temp']
+t153=data['list'][36]['weather'][0]['description']
+t154=data['list'][36]['main']['pressure']
+t155=data['list'][36]['main']['temp_max']
+t156=data['list'][36]['main']['temp_min']
+
+
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t11,t12,t13,t14,t15,t16))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t21,t22,t23,t24,t25,t26))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t31,t32,t33,t34,t35,t36))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t41,t42,t43,t44,t45,t46))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t51,t52,t53,t54,t55,t56))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t61,t62,t63,t64,t65,t66))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t71,t12,t73,t74,t75,t76))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t81,t82,t83,t84,t85,t86))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t91,t92,t93,t94,t95,t96))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t101,t102,t103,t104,t105,t106))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t111,t112,t113,t114,t115,t116))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t121,t122,t123,t124,t125,t126))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t131,t132,t133,t134,t135,t136))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t141,t142,t143,t144,t145,t146))
+print("城市是南阳,时间是{},温度是{},天气情况是{},气压是{},最高温度是{},最低温度是{}".format(t151,t152,t153,t154,t155,t156))
+
+print("City is Nanyang, time is {}, temperature is {}, weather deception is overcast,cloudy, pressure is {}, high temperature is {}, low temperature is {}".format(t11,t12,t14,t15,t16))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is cloudy, pressure is {}, high temperature is {}, low temperature is {}".format(t21,t22,t24,t25,t26))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t31,t32,t34,t35,t36))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t41,t42,t44,t45,t46))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t51,t52,t54,t55,t56))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t61,t62,t64,t65,t66))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t71,t12,t74,t75,t76))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is cloudy, pressure is {}, high temperature is {}, low temperature is {}".format(t81,t82,t84,t85,t86))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t91,t92,t94,t95,t96))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t101,t102,t104,t105,t106))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t111,t112,t114,t115,t116))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t121,t122,t124,t125,t126))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is fine, pressure is {}, high temperature is {}, low temperature is {}".format(t131,t132,t134,t135,t136))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is mid rain, pressure is {}, high temperature is {}, low temperature is {}".format(t141,t142,t144,t145,t146))
+print("City is Nanyang, time is {}, temperature is {}, weather deception is mid rain, pressure is {}, high temperature is {}, low temperature is {}".format(t151,t152,t154,t155,t156))
+
+print("时间是{},穿衣建议是短袖短裤,带伞".format(t11))
+print("时间是{},穿衣建议是短袖长裤".format(t21))
+print("时间是{},穿衣建议是短袖长裤".format(t31))
+print("时间是{},穿衣建议是短袖短裤".format(t41))
+print("时间是{},穿衣建议是短袖长裤".format(t51))
+print("时间是{},穿衣建议是短袖长裤".format(t61))
+print("时间是{},穿衣建议是短袖短裤".format(t71))
+print("时间是{},穿衣建议是短袖短裤".format(t81))
+print("时间是{},穿衣建议是短袖长裤".format(t91))
+print("时间是{},穿衣建议是短袖短裤".format(t101))
+print("时间是{},穿衣建议是短袖短裤".format(t111))
+print("时间是{},穿衣建议是短袖长裤".format(t121))
+print("时间是{},穿衣建议是短袖短裤".format(t131))
+print("时间是{},穿衣建议是短袖长裤，带伞".format(t141))
+print("时间是{},穿衣建议是短袖长裤，带伞".format(t151))
+
+print(int(t12)*'-')
+print(int(t22)*'-')
+print(int(t32)*'-')
+print(int(t42)*'-')
+print(int(t52)*'-')
+print(int(t62)*'-')
+print(int(t72)*'-')
+print(int(t82)*'-')
+print(int(t92)*'-')
+print(int(t102)*'-')
+print(int(t112)*'-')
+print(int(t122)*'-')
+print(int(t132)*'-')
+print(int(t142)*'-')
+print(int(t152)*'-')
