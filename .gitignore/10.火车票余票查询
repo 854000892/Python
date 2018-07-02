@@ -1,0 +1,27 @@
+import urllib.request as r#导入联网工具包，命令为r
+url='https://kyfw.12306.cn/otn/leftTicket/query?leftTicketDTO.train_date=2018-06-26&leftTicketDTO.from_station=SHH&leftTicketDTO.to_station=NJH&purpose_codes=ADULT'
+data=r.urlopen(url).read().decode('utf-8')
+
+import json
+data=json.loads(data)
+data=data['data']['result']
+
+p='  '
+len([p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p])
+title='车次{}出发站/到达站{}出发时间/到达时间{}历时{}商务座/特等座{}一等座{}二等座{}高级软卧{}软卧{}动卧{}硬卧{}软座{}硬座{}无座{}其他{}备注'.format(p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p)
+title=title.split(p)
+for i in title:
+    print(i.center(12),end='')
+print()
+
+c=[]
+for x in range(274):
+    s=data[x]
+    ls=s.split('|')
+    if ls[3][:1]=='K':
+        c.append(x)
+        b=data[x]
+        ls1=b.split('|')
+        ls2=[ls[3],[ls[6],ls[7]],[ls[8],ls[9]],ls[10],'--','--','--','--',ls[23],'--',ls[28],'--',ls[29],ls[26],'--']
+        for i in ls2:
+            print(str(i).center(15).replace('[','').replace(']',''),end='')
