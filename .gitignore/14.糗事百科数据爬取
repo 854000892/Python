@@ -1,0 +1,13 @@
+import urllib.request as r
+for i in range(1,13):
+    req=r.Request('https://www.qiushibaike.com/8hr/page/{}/'.format(i),headers={'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36'})
+    myurl=r.urlopen(req)
+    print(myurl.getcode())
+    data=myurl.read().decode('utf-8')
+    pat1='alt="(.*?)"'
+    pat2='<span>(.*?)</span>'
+    import re
+    ls1=re.compile(pat1,re.S).findall(data)
+    ls2=re.compile(pat2,re.S).findall(data)
+    for j in range(24):
+        print('作者:{}\n,内容:{}'.format(ls1[j],ls2[j]))
