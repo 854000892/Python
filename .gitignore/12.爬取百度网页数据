@@ -1,0 +1,16 @@
+import urllib.request as r#导入联网工具包，命令为r
+url='http://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&ch=9&tn=98012088_6_dg&wd=%E6%B3%95%E6%8B%89%E5%88%A9&oq=%25E6%25B3%2595%25E6%258B%2589%25E5%2588%25A9&rsv_pq=f9d7a7da000004c5&rsv_t=c9622QrJd%2F9gtYOrfhR3SQHJgw1Ja7OBW%2BCStPfzfJT%2BLLPpWXt7k3jKWTkjHpIRRZ5QFQ&rqlang=cn&rsv_enter=0&rsv_sug3=1&rsv_sug1=1&rsv_sug7=100&prefixsug=%25E6%25B3%2595%25E6%258B%2589%25E5%2588%25A9&rsp=0&rsv_sug4=1557&rsv_sug=1'
+data=r.urlopen(url).read().decode('utf-8')
+print(data)
+import re
+ls1=re.compile('"title":"(.*?)"').findall(data)
+for i in range(0,7):
+    print(ls1[i],'\n')
+ls2=re.compile('<div class="c-abstract">(.*?)</div>').findall(data)
+for i in range(0,7):
+    print(ls2[i],'\n')
+ls3=re.compile('class="f13"><a target="_blank" href="(.*?)"',re.S).findall(data)
+for i in range(0,7):
+    print(ls3[i],'\n')
+for i in range(0,7):
+    print('标题:{},描述:{},网址:{}'.format(ls1[i],ls2[i],ls3[i]))
