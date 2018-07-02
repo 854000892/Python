@@ -1,0 +1,11 @@
+wendu=[30,27,25,31,26,29,30]
+print(wendu[0])
+print(wendu[1])
+print(wendu[2])
+print(wendu[3])
+print(wendu[4])
+print(wendu[5])
+print(wendu[6])
+
+g=25
+print('今天是：'+str(g))
