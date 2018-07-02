@@ -1,0 +1,19 @@
+import urllib.request as r#导入联网工具包，命令为r
+f=open("./淘宝河南羽绒服1.csv","a")
+lis=range(100)
+for i in lis:
+    url='https://s.taobao.com/search?q=%E7%BE%BD%E7%BB%92%E6%9C%8D&imgfile=&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&spm=a21bo.2017.201856-taobao-item.1&ie=utf8&initiative_id=tbindexz_20170306&loc=%E6%B2%B3%E5%8D%97&bcoffset=4&p4ppushleft=1%2C48&ntoffset=4&s=0&ajax=true'
+    data=r.urlopen(url).read().decode('utf-8')
+
+    import json
+    data=json.loads(data)
+    ls=range(36)
+    for j in ls:
+        a=data['mods']['itemlist']['data']['auctions'][j]['raw_title']
+        b=data['mods']['itemlist']['data']['auctions'][j]['nick']
+        c=data['mods']['itemlist']['data']['auctions'][j]['view_price']
+        d=data['mods']['itemlist']['data']['auctions'][j]['view_sales']
+        e=data['mods']['itemlist']['data']['auctions'][j]['item_loc']
+        f.write("{},{},{},{},{}\n".format(a,b,c,d,e))
+    print('第{}页加载完毕'.format(i+1))
+f.close()
