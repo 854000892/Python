@@ -1,0 +1,22 @@
+import urllib.request as r#导入联网工具包，命令为r
+url='http://api.openweathermap.org/data/2.5/forecast?q=nanyang,cn&mode=json&lang=zh_cn&&APPID=6a67ed641c0fda8b69715c43518b6996&units=metric'
+data=r.urlopen(url).read().decode('utf-8')
+#讲str类型转换为dict
+import json
+data=json.loads(data)
+
+print('天气提醒:')
+for i in range(36):
+    a=data['list'][i]['dt_txt']
+    b=data['list'][i]['weather'][0]['description']
+     
+    if b=='晴':
+        print("时间是:{},天气情况是:{}".format(a,b),"天气晴朗，适合外出游玩，注意防晒!")
+    elif b=='晴,少云':
+        print("时间是:{},天气情况是:{}".format(a,b),"天气晴朗，适合外出游玩!")
+    elif b=='多云':
+        print("时间是:{},天气情况是:{}".format(a,b),"天气多云，注意可能下雨!")
+    elif b=='中雨':
+        print("时间是:{},天气情况是:{}".format(a,b),"中雨天气，注意带伞，谨慎外出!")
+    elif b=='大雨':
+        print("时间是:{},天气情况是:{}".format(a,b),"大雨天气，注意带伞，谨慎外出，注意安全!")
