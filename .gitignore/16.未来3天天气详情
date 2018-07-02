@@ -1,0 +1,14 @@
+class Weather:
+    def __init__(self,temp,description,pre):
+        self.temp=temp
+        self.description=description
+        self.pre=pre
+    def msg(self):
+        print('温度是:'+self.temp,'天气状况是:'+self.description,'气压是:'+self.pre)
+        
+day1=Weather('33','多云转小雨','998.7')
+day2=Weather('32','多云转晴','997.6')
+day3=Weather('31','小雨转阴','996.5')
+day1=msg()
+day2=msg()
+day3=msg()
